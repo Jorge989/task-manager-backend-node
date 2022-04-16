@@ -400,11 +400,12 @@ let deleteTasksFromList = (_listId) => {
 connectToDatabase()
   .then(function () {
     console.log("Connected to database");
-    const server = http.createServer(app);
-    server.listen(port, function () {
+    // const server = http.createServer(app);
+    app.listen(port, function () {
       console.log("Server is listening at http://localhost:3000");
     });
   })
-  .catch(function () {
+  .catch(function (err) {
+    console.log(err);
     console.log("Database connection failed");
   });
